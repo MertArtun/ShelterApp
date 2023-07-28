@@ -1,0 +1,13 @@
+@{
+    ViewData["Title"] = "AddAnimalType";
+}
+
+@model AnimalType
+
+<form method="POST">
+    <div class="mb-3">
+        <label asp-for="Name"></label>
+        <input asp-for="Name">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -1,0 +1,29 @@
+@{
+    ViewData["Title"] = "AnimalTypes";
+}
+
+@model List<AnimalType>
+
+<a href="/Animal/AddAnimalType" class="btn btn-primary">Hayvan Türü Ekle</a>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Id</th>
+            <th scope="col">İsim</th>
+            <th scope="col">Eklenme Tarihi</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@(Model.IndexOf(item)+1)</th>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.CreatedDate.ToString("dd MMMM yyyy HH:mm")</td>
+            </tr>
+        }
+    </tbody>
+</table>
