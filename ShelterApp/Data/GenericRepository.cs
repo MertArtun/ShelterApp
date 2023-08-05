@@ -14,14 +14,14 @@ namespace ShelterApp.Data
             {
                 using C context = new();
                 EntityEntry result = context.Add(entity);
-
+                
                 context.SaveChanges();
 
                 return result.State == EntityState.Added;
             }
             catch (Exception)
             {
-                return false;
+                throw;
             }
         }
 

@@ -12,7 +12,7 @@ namespace ShelterApp.Models
         public DateTime RegisterDate { get; set; }
         public DateTime? AdoptedDate { get; set; }
 
-        public AnimalType Type { get; set; } = new();
+        public AnimalType? Type { get; set; }
     }
 }
 

@@ -1,8 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using ShelterApp.Data;
 using ShelterApp.Models;
 
@@ -10,7 +7,7 @@ namespace ShelterApp.Controllers
 {
     public class AnimalController : Controller
     {
-        private AnimalTypeRepository _animalTypeRepository;
+        private readonly AnimalTypeRepository _animalTypeRepository;
 
         public AnimalController(AnimalTypeRepository animalTypeRepository)
         {
@@ -35,12 +32,14 @@ namespace ShelterApp.Controllers
         [HttpPost]
         public IActionResult AddAnimalType(AnimalType entity)
         {
+            System.Console.WriteLine(JsonConvert.SerializeObject(entity));
             try
             {
                 _animalTypeRepository.Insert(entity);
             } 
-            catch(Exception)
+            catch(Exception ex)
             {
+                System.Console.WriteLine(ex.Message);
                 throw;
             }
             return RedirectToAction("AnimalTypes");
